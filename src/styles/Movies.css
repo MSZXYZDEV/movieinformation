@@ -1,0 +1,7 @@
+section {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 100px 100px 100px;
+    grid-gap: 50px;
+    font-size: 20px;
+}

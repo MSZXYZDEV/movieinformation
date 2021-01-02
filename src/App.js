@@ -1,24 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
 
+import Movies from './Components/Movies'
+import MoviesFind from './Components/MoviesFind';
+
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <p>Wyszukaj filmy, które chcesz obejrzeć i dodaj je do ulubionych</p>
       </header>
-    </div>
+      <MoviesFind />
+      <main>
+        <p>3 ulubione filmy</p>
+        <Movies />
+      </main>
+    </div >
   );
 }
 

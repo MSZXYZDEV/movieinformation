@@ -1,0 +1,14 @@
+form {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.input__search {
+    border: 2px solid #fff;
+    border-radius: 15px;
+    text-align: center;
+    color: #171717;
+    width: 300px;
+    height: 25px;
+}
