@@ -1,6 +1,4 @@
 import './App.css';
-
-import Movies from './Components/Movies'
 import MoviesFind from './Components/MoviesFind';
 
 function App() {
@@ -8,13 +6,9 @@ function App() {
   return (
     <div className="App">
       <header>
-        <p>Wyszukaj filmy, które chcesz obejrzeć i dodaj je do ulubionych</p>
+        <p>Wyszukaj film o którym chcesz się dowiedzieć więcej.</p>
       </header>
       <MoviesFind />
-      <main>
-        <p>3 ulubione filmy</p>
-        <Movies />
-      </main>
     </div >
   );
 }

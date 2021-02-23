@@ -1,11 +1,9 @@
-import { useState, useEffect } from 'react';
-
+import React, { useState, useEffect } from 'react';
 import '../styles/MoviesFind.css'
 
 const MoviesFind = () => {
     const [inputChange, setInputChange] = useState('');
-    const [apiResult, setApiResult] = useState([]);
-
+    const [searchMovies, setSearchMovies] = useState([]);
     const API = `http://www.omdbapi.com/?apikey=30f5797&t=${inputChange}`;
 
     const handleSubmit = (e) => {
@@ -18,22 +16,40 @@ const MoviesFind = () => {
     useEffect(() => {
         fetch(API)
             .then(data => data.json())
-            .then(data => {
-                setApiResult(
-                    <div key={data.imdbID} className="ResultSearch">
-                        <p>{data.Title}</p>
-                        <img src={data.Poster} alt={data.Title} />
-                        <p>{data.Year}</p>
-                    </div>
-                )
-            })
-    }, [inputChange, apiResult, setApiResult, API])
+            .then(data => setSearchMovies([data]))
+        }, [inputChange, searchMovies, setSearchMovies, API])
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="Wyszukaj swój ulubiony film" className="input__search" onChange={HandleChangeInput} />
-            {apiResult}
-        </form>
+        <main>
+            <form onSubmit={handleSubmit}>
+                <input type="text" placeholder="Wyszukaj swój ulubiony film" className="input__search" onChange={HandleChangeInput} />
+            </form>
+            {searchMovies.map((movie, index) => {
+                return (
+                    <ul key={`${index} - ${movie.Title}`}>
+                        <li className="ResultSearch">
+                            <p>Tytuł: {movie.Title}</p>
+                        </li>
+                        <li>
+                            <img src={movie.Poster} alt={movie.Title} />
+                        </li>
+                        <li>
+                            <p>Data: {movie.Year}</p>
+                        </li>
+                        <li>
+                            <p>Autorzy: {movie.Actors}</p>
+                        </li>
+                        <li>
+                            <p>Produkcja: {movie.Production}</p>
+                        </li>
+                        <li>
+                            <p>Ocena: {movie.imdbRating}</p>
+                        </li>
+                    </ul>
+                )
+            })
+            }
+        </main>
     )
 }
 
