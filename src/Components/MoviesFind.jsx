@@ -4,7 +4,7 @@ import '../styles/MoviesFind.css'
 const MoviesFind = () => {
     const [inputChange, setInputChange] = useState('');
     const [searchMovies, setSearchMovies] = useState([]);
-    const API = `http://www.omdbapi.com/?apikey=30f5797&t=${inputChange}`;
+    const API = `http://www.omdbapi.com/?apikey=Key&t=${inputChange}`;
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -22,7 +22,7 @@ const MoviesFind = () => {
     return (
         <main>
             <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="Wyszukaj swój ulubiony film" className="input__search" onChange={HandleChangeInput} />
+                <input type="text" placeholder="Wyszukaj informacje o danym filmie" className="input__search" onChange={HandleChangeInput} />
             </form>
             {searchMovies.map((movie, index) => {
                 return (
