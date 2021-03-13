@@ -17,7 +17,7 @@ const MoviesFind = () => {
         fetch(API)
             .then(data => data.json())
             .then(data => setSearchMovies([data]))
-        }, [inputChange, searchMovies, setSearchMovies, API])
+        }, [setSearchMovies, API])
 
     return (
         <main>
